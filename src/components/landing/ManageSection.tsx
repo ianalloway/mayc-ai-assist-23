@@ -10,41 +10,41 @@ export const ManageSection = ({
 }: ManageSectionProps) => {
   const [activeFeature, setActiveFeature] = useState<number | null>(null);
   const features = [{
-    title: "Add Cells",
-    description: "Seamlessly import data (CSV, HTML, AI scraping, or clipping) or create new entries effortlessly."
+    title: "NFT Personalities",
+    description: "Each MAYC has unique traits and AI personality based on their mutant characteristics."
   }, {
-    title: "Plug & Play",
-    description: "Fully customizable with an open-source framework that adapts to your workflow."
+    title: "Specialized Skills",
+    description: "Alpha, Mega, Toxic, Radioactive, and Prismatic mutants each excel in different areas."
   }, {
-    title: "Spatial Thinking",
-    description: "Visualize ideas with brain cells, lists, galleries, tables, maps, or timelines."
+    title: "Visual Intelligence",
+    description: "Your MAYC AI can analyze, understand, and work with visual content and data."
   }, {
-    title: "Contextual",
-    description: "Say goodbye to folders—create sub-brains tailored to specific projects or tasks."
+    title: "Personal Assistant",
+    description: "Each NFT becomes a dedicated AI agent tailored to your specific needs and workflows."
   }, {
-    title: "Intelligence",
-    description: "AI-powered insights that extract what they mention from every pinned topic."
+    title: "Trait-Based AI",
+    description: "Laser Eyes for precision, Gold Teeth for wealth insights, Cyber Helmet for tech expertise."
   }, {
-    title: "Clip",
-    description: "Collect data from any source or device directly into your second brain."
+    title: "Collection Power",
+    description: "Build a team of MAYC AI agents with complementary skills and personalities."
   }, {
-    title: "Agnostic",
-    description: "Clip any type of content with built-in extraction tools."
+    title: "Mutant Memory",
+    description: "Your MAYC remembers everything and learns from your interactions over time."
   }, {
-    title: "Search",
-    description: "Find what you're looking for with intelligent, precision-focused search capabilities."
+    title: "Smart Discovery",
+    description: "AI-powered search that understands context and finds exactly what you need."
   }, {
-    title: "Private",
-    description: "Keep all your work secure in a private, controlled space."
+    title: "Secure Vault",
+    description: "Your MAYC AI keeps all data private and secure within your personal ecosystem."
   }, {
-    title: "Recognition",
-    description: "Identify and extract text from images, videos, and more."
+    title: "Image Analysis",
+    description: "Advanced visual recognition powered by your mutant's unique perspective."
   }, {
-    title: "Share",
-    description: "Share thoughts and ideas to collaborate seamlessly."
+    title: "Collaborative Apes",
+    description: "Share insights and collaborate with other MAYC holders' AI agents."
   }, {
-    title: "D/L mode",
-    description: "Toggle between dark and simplified interface with custom color modes for focus."
+    title: "Adaptive Interface",
+    description: "UI changes based on your active MAYC's personality and preferred working style."
   }];
   const handleFeatureClick = (index: number) => {
     setActiveFeature(index === activeFeature ? null : index);
@@ -52,8 +52,8 @@ export const ManageSection = ({
   return <AnimatedTransition show={show} animation="slide-up" duration={600}>
       <div className="py-16 md:py-24">
         <div className="flex flex-col items-center text-center gap-2 mb-12">
-          <h2 className="text-4xl font-bold text-blue-600 md:text-8xl">Manage</h2>
-          <p className="text-foreground max-w-3xl text-xl md:text-2xl mt-2">The first and only extension for your real mind.</p>
+          <h2 className="text-4xl font-bold text-blue-600 md:text-8xl">MAYC AI Agents</h2>
+          <p className="text-foreground max-w-3xl text-xl md:text-2xl mt-2">Each Mutant Ape becomes your personal AI assistant with unique abilities.</p>
         </div>
 
         <FeatureIllustration featureIndex={activeFeature} className="transition-all duration-500" />

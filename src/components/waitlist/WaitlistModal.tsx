@@ -37,7 +37,7 @@ export function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
     e.preventDefault()
     // Here you would typically send this data to your backend
     console.log("Submitted data:", formData)
-    toast.success("Thanks for joining our waitlist! We'll be in touch soon.", {
+    toast.success("MAYC verification submitted! Your NFT AI agent will be activated soon.", {
       duration: 5000,
     })
     onClose()
@@ -47,9 +47,9 @@ export function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="sm:max-w-[500px]">
         <DialogHeader>
-          <DialogTitle>Join Our Waitlist</DialogTitle>
+          <DialogTitle>Connect Your MAYC</DialogTitle>
           <DialogDescription>
-            Help us understand your needs better and get early access.
+            Verify your MAYC ownership and activate your personal NFT AI agent.
           </DialogDescription>
         </DialogHeader>
         <form onSubmit={handleSubmit} className="grid gap-4 py-4">
@@ -116,18 +116,19 @@ export function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
           </div>
 
           <div className="grid gap-2">
-            <Label htmlFor="reason">Why are you interested?</Label>
+            <Label htmlFor="reason">What will you use your MAYC AI for?</Label>
             <textarea
               id="reason"
               className="flex min-h-[100px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
               value={formData.reason}
               onChange={(e) => setFormData({ ...formData, reason: e.target.value })}
+              placeholder="Describe how you plan to use your MAYC AI agent..."
               required
             />
           </div>
 
           <Button type="submit" className="w-full">
-            <Check className="mr-2 h-4 w-4" /> Submit
+            <Check className="mr-2 h-4 w-4" /> Activate MAYC AI
           </Button>
         </form>
       </DialogContent>

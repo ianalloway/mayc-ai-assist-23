@@ -12,7 +12,7 @@ export const HeroSection = ({
 }: HeroSectionProps) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<'scattered' | 'convergence' | 'organized'>('scattered');
-  const [heroText, setHeroText] = useState("All your notes, bookmarks, inspirations, articles and images in one single, private second brain, accessible anywhere, anytime.");
+  const [heroText, setHeroText] = useState("Each MAYC NFT becomes your personal AI assistant with unique traits, personality, and specialized knowledge to help you organize, create, and innovate.");
   const handleSectionClick = (section: 'scattered' | 'convergence' | 'organized', text: string) => {
     setActiveSection(section);
     setHeroText(text);
@@ -21,7 +21,7 @@ export const HeroSection = ({
       <AnimatedTransition show={showTitle} animation="slide-up" duration={600}>
         {/* Title first */}
         <h1 className="text-4xl sm:text-5xl font-bold mb-6 bg-clip-text text-blue-600 md:text-7xl">
-          Your Personal AI Engine
+          Your Personal MAYC NFT AI Agent
         </h1>
         
         {/* Interactive text second */}
@@ -36,7 +36,7 @@ export const HeroSection = ({
         
         {/* Call to action last */}
         <Button size="lg" onClick={() => setIsModalOpen(true)} className="rounded-full px-8 py-6 text-base font-medium bg-primary hover:bg-primary/90 transition-all duration-300">
-          Join Waitlist
+          Connect Your MAYC
         </Button>
 
         <WaitlistModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
