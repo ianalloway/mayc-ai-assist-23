@@ -1,5 +1,5 @@
 
-export type CortexItem = {
+export type MAYCItem = {
   id: string;
   title: string;
   url: string;
@@ -8,74 +8,81 @@ export type CortexItem = {
   source: string;
   keywords: string[];
   pitch: string;
-  writer: string;
+  aiPersonality: string;
+  traits: string[];
 };
 
-export const cortexItems: CortexItem[] = [
+export const maycItems: MAYCItem[] = [
   {
     id: '1',
-    title: 'Neural networks fundamentals',
-    url: '/cortex/neural-networks',
-    type: 'Article',
+    title: 'Alpha Mutant #4521',
+    url: '/nft/alpha-mutant-4521',
+    type: 'Alpha',
     createdDate: '2023-04-15',
-    source: 'Research Paper',
-    keywords: ['AI', 'Machine Learning', 'Deep Learning'],
-    pitch: 'Foundational knowledge on neural networks',
-    writer: 'Alex Johnson'
+    source: 'MAYC Collection',
+    keywords: ['Alpha', 'Strategic', 'Leadership'],
+    pitch: 'Strategic Alpha mutant specializing in market analysis and leadership',
+    aiPersonality: 'Confident and analytical, loves taking charge of complex situations',
+    traits: ['Laser Eyes', 'Gold Teeth', 'Bored Expression']
   },
   {
     id: '2',
-    title: 'Cloud architecture patterns',
-    url: '/cortex/cloud-patterns',
-    type: 'Guide',
+    title: 'Mega Mutant #8732',
+    url: '/nft/mega-mutant-8732',
+    type: 'Mega',
     createdDate: '2023-05-22',
-    source: 'Internal Knowledge',
-    keywords: ['Cloud', 'Architecture', 'Patterns'],
-    pitch: 'Best practices for cloud systems',
-    writer: 'Sarah Miller'
+    source: 'MAYC Collection',
+    keywords: ['Mega', 'Creative', 'Innovation'],
+    pitch: 'Creative Mega mutant focused on innovative solutions and artistic vision',
+    aiPersonality: 'Creative and imaginative, always thinking outside the box',
+    traits: ['Rainbow Fur', 'Cyber Helmet', 'Paint Brush']
   },
   {
     id: '3',
-    title: 'UX research methods',
-    url: '/cortex/ux-research',
-    type: 'Collection',
+    title: 'Toxic Mutant #2156',
+    url: '/nft/toxic-mutant-2156',
+    type: 'Toxic',
     createdDate: '2023-06-10',
-    source: 'External Website',
-    keywords: ['UX', 'Research', 'Design'],
-    pitch: 'Comprehensive guide to UX research',
-    writer: 'David Chen'
+    source: 'MAYC Collection',
+    keywords: ['Toxic', 'Research', 'Analysis'],
+    pitch: 'Analytical Toxic mutant specializing in deep research and data analysis',
+    aiPersonality: 'Methodical and detail-oriented, loves diving deep into complex problems',
+    traits: ['Toxic Waste', 'Lab Coat', 'Magnifying Glass']
   },
   {
     id: '4',
-    title: 'Product strategy',
-    url: '/cortex/product-strategy',
-    type: 'Template',
+    title: 'Radioactive Mutant #9445',
+    url: '/nft/radioactive-mutant-9445',
+    type: 'Radioactive',
     createdDate: '2023-07-05',
-    source: 'Team Workshop',
-    keywords: ['Product', 'Strategy', 'Management'],
-    pitch: 'Framework for product strategy',
-    writer: 'Emily Rodriguez'
+    source: 'MAYC Collection',
+    keywords: ['Radioactive', 'Strategy', 'Planning'],
+    pitch: 'Strategic Radioactive mutant with expertise in long-term planning',
+    aiPersonality: 'Forward-thinking and strategic, always planning three steps ahead',
+    traits: ['Glowing Aura', 'Hazmat Suit', 'Nuclear Symbol']
   },
   {
     id: '5',
-    title: 'JavaScript patterns',
-    url: '/cortex/js-patterns',
-    type: 'Code',
+    title: 'Prismatic Mutant #6673',
+    url: '/nft/prismatic-mutant-6673',
+    type: 'Prismatic',
     createdDate: '2023-08-18',
-    source: 'Book',
-    keywords: ['JavaScript', 'Patterns', 'Development'],
-    pitch: 'Effective JavaScript patterns and practices',
-    writer: 'Michael Park'
+    source: 'MAYC Collection',
+    keywords: ['Prismatic', 'Development', 'Technology'],
+    pitch: 'Tech-savvy Prismatic mutant focused on development and coding',
+    aiPersonality: 'Logical and systematic, enjoys solving technical challenges',
+    traits: ['Holographic Fur', 'VR Headset', 'Code Matrix']
   }
 ];
 
 export const columns = [
-  { id: 'title', name: 'Title', sortable: true },
+  { id: 'title', name: 'NFT Name', sortable: true },
   { id: 'url', name: 'URL', sortable: false },
-  { id: 'type', name: 'Type', sortable: true },
+  { id: 'type', name: 'Mutant Type', sortable: true },
   { id: 'createdDate', name: 'Created Date', sortable: true },
-  { id: 'keywords', name: 'Keywords', sortable: false },
-  { id: 'source', name: 'Source', sortable: true },
-  { id: 'pitch', name: 'Pitch', sortable: false },
-  { id: 'writer', name: 'Writer', sortable: true },
+  { id: 'keywords', name: 'Specialties', sortable: false },
+  { id: 'source', name: 'Collection', sortable: true },
+  { id: 'pitch', name: 'AI Description', sortable: false },
+  { id: 'aiPersonality', name: 'Personality', sortable: true },
+  { id: 'traits', name: 'Traits', sortable: false },
 ];

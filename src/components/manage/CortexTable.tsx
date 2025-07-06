@@ -6,7 +6,7 @@ import TableView from './views/TableView';
 import GridView from './views/GridView';
 import ListView from './views/ListView';
 import KanbanView from './views/KanbanView';
-import { cortexItems } from './cortex-data';
+import { maycItems } from './cortex-data';
 import { 
   Dialog, 
   DialogContent, 
@@ -40,26 +40,26 @@ const CortexTable = ({ viewType = 'table', categoryId = 'private', cortexId = 'o
       {
         id: 'shared',
         items: [
-          { id: 'shared-1', name: 'Second Brain' },
-          { id: 'shared-2', name: 'OSS' },
-          { id: 'shared-3', name: 'Artificial Intelligence' },
+          { id: 'shared-1', name: 'Alpha Collection' },
+          { id: 'shared-2', name: 'Mega Mutants' },
+          { id: 'shared-3', name: 'AI Specialists' },
         ]
       },
       {
         id: 'team',
         items: [
-          { id: 'team-1', name: 'Brainboard Competitors' },
-          { id: 'team-2', name: 'Visualize Terraform' },
-          { id: 'team-3', name: 'CI/CD Engine' },
+          { id: 'team-1', name: 'Strategy Mutants' },
+          { id: 'team-2', name: 'Creative Apes' },
+          { id: 'team-3', name: 'Tech Squad' },
         ]
       },
       {
         id: 'private',
         items: [
           { id: 'overview', name: 'Overview' },
-          { id: 'private-1', name: 'UXUI' },
-          { id: 'private-2', name: 'Space' },
-          { id: 'private-3', name: 'Cloud Computing' },
+          { id: 'private-1', name: 'Toxic Mutants' },
+          { id: 'private-2', name: 'Radioactive Apes' },
+          { id: 'private-3', name: 'Prismatic Collection' },
         ]
       }
     ];
@@ -80,20 +80,20 @@ const CortexTable = ({ viewType = 'table', categoryId = 'private', cortexId = 'o
     
     if (cortexId === 'overview') {
       return searchQuery 
-        ? cortexItems.filter(item => 
+        ? maycItems.filter(item => 
             item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
             item.keywords.some(keyword => keyword.toLowerCase().includes(searchQuery.toLowerCase())) ||
-            item.writer.toLowerCase().includes(searchQuery.toLowerCase())
+            item.aiPersonality.toLowerCase().includes(searchQuery.toLowerCase())
           )
-        : cortexItems;
+        : maycItems;
     }
     
-    let cortexFiltered = cortexItems.filter(item => 
+    let cortexFiltered = maycItems.filter(item => 
       item.keywords.some(keyword => keyword.toLowerCase() === activeCortexName.toLowerCase())
     );
     
     if (cortexFiltered.length === 0) {
-      cortexFiltered = cortexItems.filter(item => 
+      cortexFiltered = maycItems.filter(item => 
         item.keywords.some(keyword => keyword.toLowerCase().includes(activeCortexName.toLowerCase())) ||
         item.title.toLowerCase().includes(activeCortexName.toLowerCase())
       );
@@ -103,7 +103,7 @@ const CortexTable = ({ viewType = 'table', categoryId = 'private', cortexId = 'o
       ? cortexFiltered.filter(item => 
           item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
           item.keywords.some(keyword => keyword.toLowerCase().includes(searchQuery.toLowerCase())) ||
-          item.writer.toLowerCase().includes(searchQuery.toLowerCase())
+          item.aiPersonality.toLowerCase().includes(searchQuery.toLowerCase())
         )
       : cortexFiltered;
   };
@@ -130,15 +130,15 @@ const CortexTable = ({ viewType = 'table', categoryId = 'private', cortexId = 'o
   };
 
   const cortexOptions = [
-    { id: 'shared-1', name: 'Second Brain' },
-    { id: 'shared-2', name: 'OSS' },
-    { id: 'shared-3', name: 'Artificial Intelligence' },
-    { id: 'team-1', name: 'Brainboard Competitors' },
-    { id: 'team-2', name: 'Visualize Terraform' },
-    { id: 'team-3', name: 'CI/CD Engine' },
-    { id: 'private-1', name: 'UXUI' },
-    { id: 'private-2', name: 'Space' },
-    { id: 'private-3', name: 'Cloud Computing' },
+    { id: 'shared-1', name: 'Alpha Collection' },
+    { id: 'shared-2', name: 'Mega Mutants' },
+    { id: 'shared-3', name: 'AI Specialists' },
+    { id: 'team-1', name: 'Strategy Mutants' },
+    { id: 'team-2', name: 'Creative Apes' },
+    { id: 'team-3', name: 'Tech Squad' },
+    { id: 'private-1', name: 'Toxic Mutants' },
+    { id: 'private-2', name: 'Radioactive Apes' },
+    { id: 'private-3', name: 'Prismatic Collection' },
   ];
 
   return (
@@ -147,7 +147,7 @@ const CortexTable = ({ viewType = 'table', categoryId = 'private', cortexId = 'o
         <div className="relative w-80">
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground" size={18} />
           <Input 
-            placeholder="Search cortexes..." 
+            placeholder="Search MAYC NFTs..." 
             className="pl-10"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
@@ -166,7 +166,7 @@ const CortexTable = ({ viewType = 'table', categoryId = 'private', cortexId = 'o
           </Button>
           <Button size="sm">
             <Plus size={16} className="mr-2" />
-            New Cortex
+            New MAYC NFT
           </Button>
         </div>
       </div>
@@ -174,7 +174,7 @@ const CortexTable = ({ viewType = 'table', categoryId = 'private', cortexId = 'o
       <div className="flex-1 overflow-auto">
         {filteredItems.length === 0 ? (
           <div className="flex flex-col items-center justify-center h-full text-muted-foreground">
-            <p>No cortex items found for this section.</p>
+            <p>No MAYC NFTs found for this section.</p>
           </div>
         ) : (
           <>
@@ -207,12 +207,12 @@ const CortexTable = ({ viewType = 'table', categoryId = 'private', cortexId = 'o
       <Dialog open={moveDialogOpen} onOpenChange={setMoveDialogOpen}>
         <DialogContent className="sm:max-w-md">
           <DialogHeader>
-            <DialogTitle>Move to Cortex</DialogTitle>
+            <DialogTitle>Move to Collection</DialogTitle>
           </DialogHeader>
           <div className="py-4">
             <Select onValueChange={setTargetCortex} value={targetCortex}>
               <SelectTrigger>
-                <SelectValue placeholder="Select target cortex" />
+                <SelectValue placeholder="Select target collection" />
               </SelectTrigger>
               <SelectContent>
                 {cortexOptions.map(option => (

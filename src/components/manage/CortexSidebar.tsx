@@ -3,19 +3,19 @@ import React, { useState } from 'react';
 import { Folder, Share, Users, Lock, Plus, Move } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
-type CortexCategory = {
+type NFTCategory = {
   id: string;
   name: string;
   icon: React.ReactNode;
-  items: CortexItem[];
+  items: NFTCollection[];
 };
 
-type CortexItem = {
+type NFTCollection = {
   id: string;
   name: string;
 };
 
-interface CortexSidebarProps {
+interface MAYCSidebarProps {
   onCortexSelect: (categoryId: string, itemId: string | null) => void;
   selectedCategoryId: string;
   selectedItemId: string | null;
@@ -25,26 +25,26 @@ const CortexSidebar = ({
   onCortexSelect, 
   selectedCategoryId = 'private', 
   selectedItemId = 'overview' 
-}: CortexSidebarProps) => {
-  const categories: CortexCategory[] = [
+}: MAYCSidebarProps) => {
+  const categories: NFTCategory[] = [
     {
       id: 'shared',
       name: 'Shared',
       icon: <Share size={16} className="text-blue-500" />,
       items: [
-        { id: 'shared-1', name: 'Second Brain' },
-        { id: 'shared-2', name: 'OSS' },
-        { id: 'shared-3', name: 'Artificial Intelligence' },
+        { id: 'shared-1', name: 'Alpha Collection' },
+        { id: 'shared-2', name: 'Mega Mutants' },
+        { id: 'shared-3', name: 'AI Specialists' },
       ]
     },
     {
       id: 'team',
-      name: 'Team Space',
+      name: 'Team Collections',
       icon: <Users size={16} className="text-green-500" />,
       items: [
-        { id: 'team-1', name: 'Brainboard Competitors' },
-        { id: 'team-2', name: 'Visualize Terraform' },
-        { id: 'team-3', name: 'CI/CD Engine' },
+        { id: 'team-1', name: 'Strategy Mutants' },
+        { id: 'team-2', name: 'Creative Apes' },
+        { id: 'team-3', name: 'Tech Squad' },
       ]
     },
     {
@@ -53,9 +53,9 @@ const CortexSidebar = ({
       icon: <Lock size={16} className="text-amber-500" />,
       items: [
         { id: 'overview', name: 'Overview' },
-        { id: 'private-1', name: 'UXUI' },
-        { id: 'private-2', name: 'Space' },
-        { id: 'private-3', name: 'Cloud Computing' },
+        { id: 'private-1', name: 'Toxic Mutants' },
+        { id: 'private-2', name: 'Radioactive Apes' },
+        { id: 'private-3', name: 'Prismatic Collection' },
       ]
     }
   ];

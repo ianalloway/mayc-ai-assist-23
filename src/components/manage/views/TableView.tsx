@@ -10,11 +10,11 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { CortexItem, columns } from '../cortex-data';
+import { MAYCItem, columns } from '../cortex-data';
 import { cn } from '@/lib/utils';
 
 interface TableViewProps {
-  items: CortexItem[];
+  items: MAYCItem[];
   selectedItems?: string[];
   onSelectItem?: (id: string) => void;
 }
@@ -95,7 +95,19 @@ const TableView = ({
               </TableCell>
               <TableCell>{item.source}</TableCell>
               <TableCell>{item.pitch}</TableCell>
-              <TableCell>{item.writer}</TableCell>
+              <TableCell>{item.aiPersonality}</TableCell>
+              <TableCell>
+                <div className="flex flex-wrap gap-1">
+                  {item.traits.map((trait, idx) => (
+                    <span 
+                      key={idx} 
+                      className="px-2 py-0.5 rounded-full bg-accent/20 text-xs"
+                    >
+                      {trait}
+                    </span>
+                  ))}
+                </div>
+              </TableCell>
             </TableRow>
           );
         })}
