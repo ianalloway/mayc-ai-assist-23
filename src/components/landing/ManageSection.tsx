@@ -52,8 +52,8 @@ export const ManageSection = ({
   return <AnimatedTransition show={show} animation="slide-up" duration={600}>
       <div className="py-16 md:py-24">
         <div className="flex flex-col items-center text-center gap-2 mb-12">
-          <h2 className="text-4xl font-bold text-blue-600 md:text-8xl">MAYC AI Agents</h2>
-          <p className="text-foreground max-w-3xl text-xl md:text-2xl mt-2">Each Mutant Ape becomes your personal AI assistant with unique abilities.</p>
+          <h2 className="text-4xl font-bold text-gradient-mutant md:text-7xl">MAYC AI Agents</h2>
+          <p className="text-muted-foreground max-w-3xl text-xl md:text-2xl mt-4">Each Mutant Ape becomes your personal AI assistant with unique abilities.</p>
         </div>
 
         <FeatureIllustration featureIndex={activeFeature} className="transition-all duration-500" />
