@@ -7,6 +7,10 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { AuthProvider } from "@/contexts/AuthContext";
 import { ThemeProvider } from "@/contexts/ThemeContext";
+import { WagmiProvider } from 'wagmi';
+import { RainbowKitProvider, darkTheme } from '@rainbow-me/rainbowkit';
+import { config } from '@/lib/wagmi';
+import '@rainbow-me/rainbowkit/styles.css';
 import Index from "./pages/Index";
 import WhyPage from "./pages/WhyPage";
 import HowPage from "./pages/HowPage";
@@ -115,22 +119,30 @@ const AppRoutes = () => {
 };
 
 const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <ThemeProvider>
-      <AuthProvider>
-        <TooltipProvider>
-          <Toaster />
-          <Sonner />
-          <BrowserRouter>
-            <div className="min-h-screen">
-              <Navbar />
-              <AppRoutes />
-            </div>
-          </BrowserRouter>
-        </TooltipProvider>
-      </AuthProvider>
-    </ThemeProvider>
-  </QueryClientProvider>
+  <WagmiProvider config={config}>
+    <QueryClientProvider client={queryClient}>
+      <RainbowKitProvider theme={darkTheme({
+        accentColor: 'hsl(142, 70%, 45%)',
+        accentColorForeground: 'white',
+        borderRadius: 'large',
+      })}>
+        <ThemeProvider>
+          <AuthProvider>
+            <TooltipProvider>
+              <Toaster />
+              <Sonner />
+              <BrowserRouter>
+                <div className="min-h-screen">
+                  <Navbar />
+                  <AppRoutes />
+                </div>
+              </BrowserRouter>
+            </TooltipProvider>
+          </AuthProvider>
+        </ThemeProvider>
+      </RainbowKitProvider>
+    </QueryClientProvider>
+  </WagmiProvider>
 );
 
 export default App;

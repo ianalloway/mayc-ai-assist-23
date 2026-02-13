@@ -1,6 +1,7 @@
 import { Button } from '@/components/ui/button';
 import { AnimatedTransition } from '@/components/AnimatedTransition';
-import { Zap, Play } from 'lucide-react';
+import { Zap, ExternalLink } from 'lucide-react';
+import { ConnectButton } from '@rainbow-me/rainbowkit';
 
 interface CallToActionProps {
   show: boolean;
@@ -23,23 +24,86 @@ export const CallToAction = ({
           Ready to unleash your mutant ape's AI potential? Connect your wallet and transform your NFT into a powerful AI companion.
         </p>
         
-        <div className="flex flex-wrap justify-center gap-4">
-          <Button 
-            size="lg" 
-            className="rounded-full px-8 py-6 text-base font-semibold bg-background text-foreground hover:bg-background/90 transition-all duration-300"
-          >
-            <Zap className="w-5 h-5 mr-2" />
-            Connect Your MAYC
-          </Button>
+        <div className="flex flex-wrap justify-center gap-4 items-center">
+          <ConnectButton.Custom>
+            {({
+              account,
+              chain,
+              openAccountModal,
+              openChainModal,
+              openConnectModal,
+              mounted,
+            }) => {
+              const ready = mounted;
+              const connected = ready && account && chain;
+
+              return (
+                <div
+                  {...(!ready && {
+                    'aria-hidden': true,
+                    style: {
+                      opacity: 0,
+                      pointerEvents: 'none',
+                      userSelect: 'none',
+                    },
+                  })}
+                >
+                  {(() => {
+                    if (!connected) {
+                      return (
+                        <Button 
+                          size="lg" 
+                          onClick={openConnectModal}
+                          className="rounded-full px-8 py-6 text-base font-semibold bg-background text-foreground hover:bg-background/90 transition-all duration-300"
+                        >
+                          <Zap className="w-5 h-5 mr-2" />
+                          Connect Your MAYC
+                        </Button>
+                      );
+                    }
+
+                    if (chain.unsupported) {
+                      return (
+                        <Button 
+                          size="lg" 
+                          onClick={openChainModal}
+                          className="rounded-full px-8 py-6 text-base font-semibold bg-destructive hover:bg-destructive/90 text-destructive-foreground transition-all duration-300"
+                        >
+                          Wrong Network
+                        </Button>
+                      );
+                    }
+
+                    return (
+                      <Button 
+                        size="lg" 
+                        onClick={openAccountModal}
+                        className="rounded-full px-8 py-6 text-base font-semibold bg-background text-foreground hover:bg-background/90 transition-all duration-300"
+                      >
+                        <Zap className="w-5 h-5 mr-2" />
+                        {account.displayName}
+                      </Button>
+                    );
+                  })()}
+                </div>
+              );
+            }}
+          </ConnectButton.Custom>
           
-          <Button 
-            size="lg" 
-            variant="outline" 
-            className="rounded-full px-8 py-6 text-base font-semibold bg-transparent text-primary-foreground border-primary-foreground/50 hover:bg-primary-foreground/10 transition-all duration-300"
+          <a 
+            href="https://x.com/mutantintel" 
+            target="_blank" 
+            rel="noopener noreferrer"
           >
-            <Play className="w-5 h-5 mr-2" />
-            View AI Demos
-          </Button>
+            <Button 
+              size="lg" 
+              variant="outline" 
+              className="rounded-full px-8 py-6 text-base font-semibold bg-transparent text-primary-foreground border-primary-foreground/50 hover:bg-primary-foreground/10 transition-all duration-300"
+            >
+              <ExternalLink className="w-5 h-5 mr-2" />
+              Follow @mutantintel
+            </Button>
+          </a>
         </div>
       </div>
     </AnimatedTransition>
