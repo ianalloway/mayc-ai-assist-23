@@ -1,8 +1,11 @@
 # Mutant Intelligence
 
-Transform your Mutant Ape Yacht Club (MAYC) NFT into a unique AI assistant with traits-based personality and specialized knowledge.
+[![Live Site](https://img.shields.io/badge/Live-mutantintelligence.com-9945FF?style=for-the-badge&logo=google-chrome&logoColor=white)](https://mutantintelligence.com)
+[![React](https://img.shields.io/badge/React-20232A?style=flat&logo=react&logoColor=61DAFB)](https://reactjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=flat&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Ethereum](https://img.shields.io/badge/Ethereum-3C3C3D?style=flat&logo=ethereum&logoColor=white)](https://ethereum.org/)
 
-**Live Site:** [mutantintelligence.com](https://mutantintelligence.com)
+Transform your Mutant Ape Yacht Club (MAYC) NFT into a unique AI assistant with traits-based personality and specialized knowledge.
 
 ![Mutant Intelligence Screenshot](https://raw.githubusercontent.com/ianalloway/mayc-ai-assist-23/main/screenshot.png)
 
