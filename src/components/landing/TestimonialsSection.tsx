@@ -8,64 +8,34 @@ export const TestimonialsSection = ({
   showTestimonials
 }: TestimonialsSectionProps) => {
   const testimonials = [{
-    quote: "A game-changer in how I manage my projects!",
-    name: "Sarah P.",
-    role: "Product Manager",
+    quote: "Finally an AI that understands the MAYC community. The alpha calls are insane.",
+    name: "ApeCoin_Mike",
+    role: "MAYC Holder #4521",
     rating: 5
   }, {
-    quote: "The AI integrations have saved me countless hours.",
-    name: "James L.",
-    role: "Software Developer",
+    quote: "Verified my mutant in seconds. Now I get exclusive insights no one else sees.",
+    name: "CryptoJen",
+    role: "MAYC Holder #8923",
     rating: 5
   }, {
-    quote: "I finally have a way to organize my ideas and execute them seamlessly.",
-    name: "Amanda T.",
-    role: "Content Creator",
+    quote: "The market analysis helped me time my trades perfectly. Up 40% this month.",
+    name: "NFT_Whale",
+    role: "MAYC Holder #1247",
+    rating: 5
+  }, {
+    quote: "Love the community features. Feels like a private club for mutant holders.",
+    name: "BoredButRich",
+    role: "MAYC Holder #6789",
     rating: 4
   }, {
-    quote: "The template library is a lifesaver for my research and presentations.",
-    name: "Dr. Michael R.",
-    role: "Researcher",
+    quote: "The AI predictions on floor price movements have been scary accurate.",
+    name: "DiamondHands_Dan",
+    role: "MAYC Holder #3456",
     rating: 5
   }, {
-    quote: "I can collaborate with my team like never before. It's so intuitive!",
-    name: "Emma A.",
-    role: "Marketing Lead",
-    rating: 4
-  }, {
-    quote: "The search function is incredible. I can find anything in seconds.",
-    name: "Laura M.",
-    role: "Data Analyst",
-    rating: 5
-  }, {
-    quote: "It's like having an AI-powered assistant that works exactly the way I want.",
-    name: "Rafael O.",
-    role: "Startup Founder",
-    rating: 5
-  }, {
-    quote: "The visualization tools have transformed how I present complex data.",
-    name: "David K.",
-    role: "Data Scientist",
-    rating: 4
-  }, {
-    quote: "I've never been more organized. Everything is just a click away.",
-    name: "Nicole F.",
-    role: "Executive Assistant",
-    rating: 5
-  }, {
-    quote: "The AI recommendations are surprisingly accurate and helpful.",
-    name: "Thomas J.",
-    role: "Researcher",
-    rating: 4
-  }, {
-    quote: "My productivity has doubled since I started using this platform.",
-    name: "Sophia R.",
-    role: "Project Manager",
-    rating: 5
-  }, {
-    quote: "The integration with other tools makes my workflow seamless.",
-    name: "Alex C.",
-    role: "Product Designer",
+    quote: "Best investment tool for the Yuga ecosystem. Period.",
+    name: "ApeFollower",
+    role: "MAYC Holder #9012",
     rating: 5
   }];
 
@@ -82,10 +52,10 @@ export const TestimonialsSection = ({
   return <AnimatedTransition show={showTestimonials} animation="slide-up" duration={600}>
       <div className="py-16 md:py-24">
         <div className="flex flex-col items-center gap-2 mb-12 text-center">
-          <h2 className="text-4xl font-bold text-blue-600 md:text-8xl">
-            Trusted by thinkers<br />
-            & doers everywhere.
-          </h2>
+                    <h2 className="text-4xl font-bold text-blue-600 md:text-8xl">
+                      Trusted by MAYC<br />
+                      holders worldwide.
+                    </h2>
           
         </div>
         
