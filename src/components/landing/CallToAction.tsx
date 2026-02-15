@@ -1,7 +1,10 @@
 import { Button } from '@/components/ui/button';
 import { AnimatedTransition } from '@/components/AnimatedTransition';
-import { Zap, ExternalLink } from 'lucide-react';
+import { Zap, ExternalLink, Heart, Copy } from 'lucide-react';
 import { ConnectButton } from '@rainbow-me/rainbowkit';
+import { useToast } from '@/components/ui/use-toast';
+
+const ETH_DONATION_ADDRESS = "0xAc7C093B312700614C80Ba3e0509f8dEde03515b";
 
 interface CallToActionProps {
   show: boolean;
@@ -10,6 +13,23 @@ interface CallToActionProps {
 export const CallToAction = ({
   show
 }: CallToActionProps) => {
+  const { toast } = useToast();
+
+  const copyEthAddress = async () => {
+    try {
+      await navigator.clipboard.writeText(ETH_DONATION_ADDRESS);
+      toast({
+        title: "Address Copied!",
+        description: "ETH donation address copied to clipboard",
+      });
+    } catch {
+      toast({
+        title: "Failed to copy",
+        variant: "destructive",
+      });
+    }
+  };
+
   return (
     <AnimatedTransition show={show} animation="slide-up" duration={600}>
       <div className="py-16 md:py-24 rounded-3xl text-center relative overflow-hidden glow-mutant">
@@ -100,10 +120,34 @@ export const CallToAction = ({
               variant="outline" 
               className="rounded-full px-8 py-6 text-base font-semibold bg-transparent text-primary-foreground border-primary-foreground/50 hover:bg-primary-foreground/10 transition-all duration-300"
             >
-                            <ExternalLink className="w-5 h-5 mr-2" />
-                            Explore AI Features
+              <ExternalLink className="w-5 h-5 mr-2" />
+              Explore AI Features
             </Button>
           </a>
+        </div>
+
+        {/* ETH Donation */}
+        <div className="mt-12 p-4 rounded-xl bg-background/10 backdrop-blur-sm border border-primary-foreground/20 max-w-md mx-auto">
+          <div className="flex items-center justify-center gap-2 mb-2">
+            <Heart className="w-4 h-4 text-red-400" />
+            <span className="text-primary-foreground text-sm font-medium">Support Development</span>
+          </div>
+          <p className="text-primary-foreground/60 text-xs mb-3">
+            If you find Mutant Intelligence helpful, consider donating ETH
+          </p>
+          <div className="flex items-center justify-center gap-2">
+            <code className="px-3 py-1.5 rounded bg-background/20 text-primary-foreground text-xs font-mono">
+              {ETH_DONATION_ADDRESS.slice(0, 10)}...{ETH_DONATION_ADDRESS.slice(-8)}
+            </code>
+            <Button 
+              size="sm"
+              variant="outline"
+              onClick={copyEthAddress}
+              className="rounded-full text-xs bg-transparent text-primary-foreground border-primary-foreground/50 hover:bg-primary-foreground/10"
+            >
+              <Copy className="w-3 h-3 mr-1" /> Copy
+            </Button>
+          </div>
         </div>
       </div>
     </AnimatedTransition>
