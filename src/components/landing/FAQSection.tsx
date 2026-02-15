@@ -11,24 +11,36 @@ export const FAQSection = ({
   const [openItem, setOpenItem] = useState<string | null>("item-1");
   const faqs = [{
     id: "item-1",
-    question: "What is a Digital Second Brain?",
-    answer: "A Digital Second Brain is an AI-powered knowledge repository that acts as an extension of your mind. It helps you organize, connect, and retrieve information efficiently, enabling better thinking and creativity."
+    question: "What is Mutant Intelligence?",
+    answer: "Mutant Intelligence transforms your Mutant Ape Yacht Club (MAYC) NFT into a unique AI assistant. Each mutant's traits influence its personality, knowledge areas, and communication style, creating a truly personalized AI experience."
   }, {
     id: "item-2",
-    question: "How does Cortex differ from regular note-taking apps?",
-    answer: "Unlike traditional note-taking apps, Cortex uses AI to automatically connect related concepts, visualize knowledge networks, and surface relevant information when you need it. It's designed to mimic how your brain naturally connects ideas."
+    question: "Do I need to own a MAYC NFT to use this?",
+    answer: "Yes, you need to connect a wallet that holds at least one MAYC NFT. The AI assistant's personality is derived from your specific mutant's traits, making each experience unique to your NFT."
   }, {
     id: "item-3",
-    question: "Is my data secure and private?",
-    answer: "Yes, we take data security and privacy very seriously. All your information is encrypted, and we never share your personal data with third parties. You maintain full ownership of your content."
+    question: "How do the NFT traits affect the AI?",
+    answer: "Each trait category (background, fur, eyes, mouth, clothes, etc.) influences different aspects of your AI assistant. For example, certain backgrounds might make your mutant more philosophical, while specific eye traits could make it more analytical or creative."
   }, {
     id: "item-4",
-    question: "Can I import data from other tools?",
-    answer: "Absolutely! Cortex supports importing from popular tools like Notion, Evernote, Roam Research, and more. Our import process preserves your existing structure while enhancing it with AI-powered connections."
+    question: "Is my wallet safe when connecting?",
+    answer: "Absolutely. We use industry-standard wallet connection protocols (WalletConnect, MetaMask). We only read your wallet address and NFT ownership - we never request transaction signing or access to your funds."
   }, {
     id: "item-5",
-    question: "Is there a mobile app available?",
-    answer: "Yes, we offer mobile apps for both iOS and Android, allowing you to access and update your digital brain on the go. All changes sync seamlessly across your devices."
+    question: "Can I use multiple MAYC NFTs?",
+    answer: "Yes! If you own multiple MAYC NFTs, you can switch between them to experience different AI personalities. Each mutant provides a unique interaction style based on its traits."
+  }, {
+    id: "item-6",
+    question: "What can I ask my Mutant AI?",
+    answer: "Your Mutant AI can help with a wide range of tasks: creative writing, coding assistance, research, brainstorming, and general conversation. Its responses will be flavored by your mutant's unique personality traits."
+  }, {
+    id: "item-7",
+    question: "Is there a cost to use the AI features?",
+    answer: "Basic features are free for MAYC holders. Premium features with extended capabilities may be available through optional subscriptions in the future."
+  }, {
+    id: "item-8",
+    question: "How is this different from ChatGPT?",
+    answer: "Unlike generic AI assistants, Mutant Intelligence creates a persistent, personalized AI companion tied to your NFT. Your mutant remembers past conversations and develops a consistent personality based on its on-chain traits."
   }];
   return <AnimatedTransition show={showFAQs} animation="slide-up" duration={600}>
       
