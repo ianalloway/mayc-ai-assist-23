@@ -5,10 +5,7 @@ import { Card } from '@/components/ui/card';
 interface DesignSectionProps {
   show: boolean;
 }
-export const DesignSection = ({
-  show
-}: DesignSectionProps) => {
-  const templateCategories = [{
+const templateCategories = [{
     title: "Creative Projects",
     templates: ["Course Creator", "Book Notes", "Interactive Presentation", "Brainstorming Session", "Video Script", "Podcast Planning", "Design Portfolio", "Creative Writing"]
   }, {
@@ -21,6 +18,10 @@ export const DesignSection = ({
     title: "Personal Growth",
     templates: ["Habit Tracker", "Goal Setting", "Learning Journal", "Reading List", "Travel Planner", "Fitness Tracker", "Productivity System", "Reflection Journal"]
   }];
+
+export const DesignSection = ({
+  show
+}: DesignSectionProps) => {
   const [currentTemplates, setCurrentTemplates] = useState<string[]>([]);
   const [category, setCategory] = useState(0);
   const [animating, setAnimating] = useState(false);
@@ -29,21 +30,21 @@ export const DesignSection = ({
       setAnimating(true);
       setTimeout(() => {
         setCategory(prev => (prev + 1) % templateCategories.length);
-        setCurrentTemplates(templateCategories[(category + 1) % templateCategories.length].templates.sort(() => Math.random() - 0.5).slice(0, 8));
+        setCurrentTemplates(templateCategories[(category + 1) % templateCategories.length].templates.slice().sort(() => Math.random() - 0.5).slice(0, 8));
         setAnimating(false);
       }, 500);
     }, 5000);
     return () => clearInterval(timer);
   }, [category]);
   useEffect(() => {
-    setCurrentTemplates(templateCategories[0].templates.sort(() => Math.random() - 0.5).slice(0, 8));
+    setCurrentTemplates(templateCategories[0].templates.slice().sort(() => Math.random() - 0.5).slice(0, 8));
   }, []);
   const changeCategory = (index: number) => {
     if (category === index || animating) return;
     setAnimating(true);
     setTimeout(() => {
       setCategory(index);
-      setCurrentTemplates(templateCategories[index].templates.sort(() => Math.random() - 0.5).slice(0, 8));
+      setCurrentTemplates(templateCategories[index].templates.slice().sort(() => Math.random() - 0.5).slice(0, 8));
       setAnimating(false);
     }, 500);
   };

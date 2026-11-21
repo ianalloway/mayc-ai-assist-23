@@ -35,7 +35,7 @@ export const Visualization: React.FC = () => {
     const width = containerRef.current.clientWidth;
     const height = containerRef.current.clientHeight;
     
-    const nodesWithPositions = nodes.map(node => ({
+    const nodesWithPositions = sampleNodes.map(node => ({
       ...node,
       x: node.x || Math.random() * (width - 100) + 50,
       y: node.y || Math.random() * (height - 100) + 50,
