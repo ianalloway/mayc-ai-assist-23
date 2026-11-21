@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { SearchIcon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Chat, ChatMessage } from '@/types/chat';
@@ -12,21 +12,12 @@ import { cn } from '@/lib/utils';
 export const Search: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [isFocused, setIsFocused] = useState(false);
-  const [chats, setChats] = useState<Chat[]>([]);
-  const [activeChat, setActiveChat] = useState<Chat | null>(null);
+  const [chats, setChats] = useState<Chat[]>(() => [createNewChatUtil()]);
+  const [activeChat, setActiveChat] = useState<Chat | null>(() => chats[0]);
   const [isEditingTitle, setIsEditingTitle] = useState<string | null>(null);
   const [editTitle, setEditTitle] = useState('');
   const [showSidebar, setShowSidebar] = useState(true);
   
-  // Initialize with a sample chat on first render
-  useEffect(() => {
-    if (chats.length === 0) {
-      const newChat = createNewChatUtil();
-      setChats([newChat]);
-      setActiveChat(newChat);
-    }
-  }, []);
-
   // Create a new chat
   const createNewChat = () => {
     const newChat = createNewChatUtil();

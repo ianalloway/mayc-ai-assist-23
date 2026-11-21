@@ -11,6 +11,29 @@ interface Stat {
   suffix?: string;
   color: string;
 }
+const targetStats: Stat[] = [{
+    value: 250000,
+    label: "Active Users",
+    suffix: "+",
+    color: "from-blue-500 to-indigo-600"
+  }, {
+    value: 780,
+    label: "Notes Created",
+    suffix: "K",
+    color: "from-amber-500 to-orange-600"
+  }, {
+    value: 12.5,
+    label: "Connections",
+    suffix: "M",
+    color: "from-green-500 to-emerald-600"
+  }, {
+    value: 2300,
+    label: "Ideas Captured",
+    prefix: "~",
+    suffix: "K",
+    color: "from-purple-500 to-pink-600"
+  }];
+
 export const StatisticsSection = ({
   show
 }: StatisticsSectionProps) => {
@@ -36,34 +59,30 @@ export const StatisticsSection = ({
     suffix: "K",
     color: "from-purple-500 to-pink-600"
   }]);
-  const targetStats: Stat[] = [{
-    value: 250000,
-    label: "Active Users",
-    suffix: "+",
-    color: "from-blue-500 to-indigo-600"
-  }, {
-    value: 780,
-    label: "Notes Created",
-    suffix: "K",
-    color: "from-amber-500 to-orange-600"
-  }, {
-    value: 12.5,
-    label: "Connections",
-    suffix: "M",
-    color: "from-green-500 to-emerald-600"
-  }, {
-    value: 2300,
-    label: "Ideas Captured",
-    prefix: "~",
-    suffix: "K",
-    color: "from-purple-500 to-pink-600"
-  }];
   const animationTriggered = useRef(false);
-  const observer = useRef<IntersectionObserver | null>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
     if (!show || animationTriggered.current) return;
-    observer.current = new IntersectionObserver(entries => {
+    const animateStats = () => {
+      const duration = 2000; // 2 seconds
+      const steps = 60;
+      const interval = duration / steps;
+      let step = 0;
+      const timer = setInterval(() => {
+        step++;
+        const progress = step / steps;
+        const easeOutProgress = 1 - Math.pow(1 - progress, 3); // Cubic ease out
+
+        setAnimatedStats(prev => prev.map((stat, index) => ({
+          ...stat,
+          value: progress >= 1 ? targetStats[index].value : Number((targetStats[index].value * easeOutProgress).toFixed(1))
+        })));
+        if (step >= steps) {
+          clearInterval(timer);
+        }
+      }, interval);
+    };
+    const observer = new IntersectionObserver(entries => {
       const [entry] = entries;
       if (entry.isIntersecting && !animationTriggered.current) {
         animateStats();
@@ -73,33 +92,12 @@ export const StatisticsSection = ({
       threshold: 0.1
     });
     if (sectionRef.current) {
-      observer.current.observe(sectionRef.current);
+      observer.observe(sectionRef.current);
     }
     return () => {
-      if (observer.current && sectionRef.current) {
-        observer.current.unobserve(sectionRef.current);
-      }
+      observer.disconnect();
     };
   }, [show]);
-  const animateStats = () => {
-    const duration = 2000; // 2 seconds
-    const steps = 60;
-    const interval = duration / steps;
-    let step = 0;
-    const timer = setInterval(() => {
-      step++;
-      const progress = step / steps;
-      const easeOutProgress = 1 - Math.pow(1 - progress, 3); // Cubic ease out
-
-      setAnimatedStats(prev => prev.map((stat, index) => ({
-        ...stat,
-        value: progress >= 1 ? targetStats[index].value : Number((targetStats[index].value * easeOutProgress).toFixed(1))
-      })));
-      if (step >= steps) {
-        clearInterval(timer);
-      }
-    }, interval);
-  };
   return <AnimatedTransition show={show} animation="slide-up" duration={600}>
       <div ref={sectionRef} className="mt-24 mb-16">
         <div className="text-center mb-12">
